@@ -43,10 +43,10 @@ Azure DevOps Pipeline
 1. Go to [Azure Portal](https://portal.azure.com)
 2. Navigate to your Static Web App: `App01`
 3. Go to **Overview** → **Manage deployment token**
-4. Copy the deployment token
+4. Copy the deployment token (already provided: a0115aa86035ad8304d35f84f03cdb23875d074496d39306376b3ad03eeac12202-ad07f7bc-68d9-4918-89ab-59c7d7bbbdbd0101102046745510)
 5. In Azure DevOps, go to **Pipelines** → **Library**
 6. Create new variable group: `StaticWebApp-Secrets`
-7. Add variable: `AZURE_STATIC_WEB_APPS_API_TOKEN` (mark as secret)
+7. Add variable: `AZURE_STATIC_WEB_APPS_API_TOKEN` with value: `a0115aa86035ad8304d35f84f03cdb23875d074496d39306376b3ad03eeac12202-ad07f7bc-68d9-4918-89ab-59c7d7bbbdbd0101102046745510` (mark as secret)
 
 ### 4. Create Pipeline
 

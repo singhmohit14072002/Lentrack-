@@ -192,7 +192,7 @@ For Azure DevOps deployment, use the provided pipeline files:
 - `azure-pipelines.yml` (advanced)
 
 **Static Web App Name**: App01  
-**Token**: App01
+**Token**: a0115aa86035ad8304d35f84f03cdb23875d074496d39306376b3ad03eeac12202-ad07f7bc-68d9-4918-89ab-59c7d7bbbdbd0101102046745510
 
 ---
 
