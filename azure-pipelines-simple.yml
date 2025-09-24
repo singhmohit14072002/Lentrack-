@@ -1,0 +1,62 @@
+# Simplified Azure DevOps Pipeline for Static Web App
+# Single pipeline for all branches with environment detection
+
+trigger:
+  branches:
+    include:
+      - master
+      - dev
+  paths:
+    exclude:
+      - README.md
+      - DEPLOYMENT.md
+
+pr:
+  branches:
+    include:
+      - master
+      - dev
+
+variables:
+  staticWebAppName: 'Front-01'
+  resourceGroupName: 'Practice_RG'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- checkout: self
+  fetchDepth: 0
+
+- task: NodeTool@0
+  displayName: 'Install Node.js'
+  inputs:
+    versionSpec: '18.x'
+
+- script: |
+    echo "🚀 Starting deployment for branch: $(Build.SourceBranchName)"
+    echo "Build ID: $(Build.BuildId)"
+    echo "Commit: $(Build.SourceVersion)"
+  displayName: 'Deployment Info'
+
+- task: AzureStaticWebApp@0
+  displayName: 'Deploy to Azure Static Web App'
+  inputs:
+    app_location: '/'
+    api_location: ''
+    output_location: ''
+    skip_app_build: true
+    azure_static_web_apps_api_token: $(AZURE_STATIC_WEB_APPS_API_TOKEN)
+
+- script: |
+    if [ "$(Build.SourceBranchName)" = "master" ]; then
+      echo "✅ Production deployment completed!"
+      echo "🌐 Production URL: https://$(staticWebAppName).azurestaticapps.net"
+    elif [ "$(Build.SourceBranchName)" = "dev" ]; then
+      echo "✅ Development deployment completed!"
+      echo "🌐 Development URL: https://$(staticWebAppName).azurestaticapps.net/staging"
+    else
+      echo "✅ PR Preview deployment completed!"
+      echo "🌐 Preview URL: https://$(staticWebAppName).azurestaticapps.net/pr-$(System.PullRequest.PullRequestNumber)"
+    fi
+  displayName: 'Deployment Success'
