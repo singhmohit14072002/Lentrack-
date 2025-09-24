@@ -33,7 +33,7 @@ A beautiful, responsive static web application showcasing popular anime characte
 
 ## 🚀 Live Demo
 
-Visit the live website: [Anime Character Gallery](https://your-app-name.azurestaticapps.net)
+Visit the live website: [Anime Character Gallery](https://app01.azurestaticapps.net)
 
 ## 🛠️ Local Development
 
@@ -102,8 +102,8 @@ This project is configured for easy deployment to Azure Static Web Apps.
 3. Deploy to Azure:
    ```bash
    az staticwebapp create \
-     --resource-group myResourceGroup \
-     --name my-static-app \
+     --resource-group Practice_RG \
+     --name App01 \
      --source https://github.com/singhmohit14072002/Lentrack-.git \
      --location "Central US" \
      --branch master
@@ -182,6 +182,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 If you have any questions or need help with deployment, please:
 - Open an issue on GitHub
 - Contact the maintainer
+
+---
+
+## 🔧 Azure DevOps Pipeline Setup
+
+For Azure DevOps deployment, use the provided pipeline files:
+- `azure-pipelines-simple.yml` (recommended)
+- `azure-pipelines.yml` (advanced)
+
+**Static Web App Name**: App01  
+**Token**: App01
 
 ---
 

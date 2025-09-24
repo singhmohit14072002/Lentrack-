@@ -19,7 +19,7 @@ pr:
 
 variables:
   # Azure Static Web App Configuration
-  staticWebAppName: 'Front-01'
+  staticWebAppName: 'App01'
   resourceGroupName: 'Practice_RG'
   
   # Environment-specific variables

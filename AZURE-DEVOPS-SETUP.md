@@ -8,11 +8,11 @@ This guide shows how to set up Azure DevOps pipelines to deploy both dev and mas
 ```
 Azure DevOps Pipeline
 ├── Master Branch → Production Environment
-│   └── URL: https://front-01.azurestaticapps.net
+│   └── URL: https://app01.azurestaticapps.net
 ├── Dev Branch → Development Environment  
-│   └── URL: https://front-01.azurestaticapps.net/staging
+│   └── URL: https://app01.azurestaticapps.net/staging
 └── PR Branches → Preview Environments
-    └── URL: https://front-01.azurestaticapps.net/pr-{number}
+    └── URL: https://app01.azurestaticapps.net/pr-{number}
 ```
 
 ## 📋 Prerequisites
@@ -20,7 +20,7 @@ Azure DevOps Pipeline
 - Azure DevOps organization and project
 - Azure subscription with Static Web Apps
 - GitHub repository: `singhmohit14072002/Lentrack-`
-- Azure Static Web App: `Front-01`
+- Azure Static Web App: `App01`
 
 ## 🔧 Step-by-Step Setup
 
@@ -41,7 +41,7 @@ Azure DevOps Pipeline
 ### 3. Get Azure Static Web Apps API Token
 
 1. Go to [Azure Portal](https://portal.azure.com)
-2. Navigate to your Static Web App: `Front-01`
+2. Navigate to your Static Web App: `App01`
 3. Go to **Overview** → **Manage deployment token**
 4. Copy the deployment token
 5. In Azure DevOps, go to **Pipelines** → **Library**
@@ -63,7 +63,7 @@ Add these variables to your pipeline:
 
 ```yaml
 # Pipeline Variables
-staticWebAppName: 'Front-01'
+staticWebAppName: 'App01'
 resourceGroupName: 'Practice_RG'
 ```
 
@@ -90,19 +90,19 @@ resourceGroupName: 'Practice_RG'
 ### Master Branch
 - **Trigger**: Automatic on push
 - **Environment**: Production
-- **URL**: `https://front-01.azurestaticapps.net`
+- **URL**: `https://app01.azurestaticapps.net`
 - **Features**: Full production features
 
 ### Dev Branch
 - **Trigger**: Automatic on push
 - **Environment**: Development
-- **URL**: `https://front-01.azurestaticapps.net/staging`
+- **URL**: `https://app01.azurestaticapps.net/staging`
 - **Features**: Debug mode, development features
 
 ### Pull Request Branches
 - **Trigger**: On PR creation
 - **Environment**: Preview
-- **URL**: `https://front-01.azurestaticapps.net/pr-{number}`
+- **URL**: `https://app01.azurestaticapps.net/pr-{number}`
 - **Features**: Temporary preview environment
 
 ## ⚙️ Pipeline Configuration
@@ -110,7 +110,7 @@ resourceGroupName: 'Practice_RG'
 ### Environment Variables
 ```yaml
 variables:
-  staticWebAppName: 'Front-01'
+  staticWebAppName: 'App01'
   resourceGroupName: 'Practice_RG'
   # Secrets stored in Azure DevOps Library
   AZURE_STATIC_WEB_APPS_API_TOKEN: $(AZURE_STATIC_WEB_APPS_API_TOKEN)
@@ -204,8 +204,8 @@ az staticwebapp list --resource-group Practice_RG
 ✅ **Pipeline runs successfully on master branch**
 ✅ **Pipeline runs successfully on dev branch**
 ✅ **PR previews work correctly**
-✅ **Production URL loads: https://front-01.azurestaticapps.net**
-✅ **Development URL loads: https://front-01.azurestaticapps.net/staging**
+✅ **Production URL loads: https://app01.azurestaticapps.net**
+✅ **Development URL loads: https://app01.azurestaticapps.net/staging**
 ✅ **Environment badges show correctly**
 
 ## 📞 Support Resources

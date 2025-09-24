@@ -18,7 +18,7 @@ pr:
       - dev
 
 variables:
-  staticWebAppName: 'Front-01'
+  staticWebAppName: 'App01'
   resourceGroupName: 'Practice_RG'
 
 pool:
@@ -51,12 +51,12 @@ steps:
 - script: |
     if [ "$(Build.SourceBranchName)" = "master" ]; then
       echo "✅ Production deployment completed!"
-      echo "🌐 Production URL: https://$(staticWebAppName).azurestaticapps.net"
+              echo "🌐 Production URL: https://app01.azurestaticapps.net"
     elif [ "$(Build.SourceBranchName)" = "dev" ]; then
       echo "✅ Development deployment completed!"
-      echo "🌐 Development URL: https://$(staticWebAppName).azurestaticapps.net/staging"
+      echo "🌐 Development URL: https://app01.azurestaticapps.net/staging"
     else
       echo "✅ PR Preview deployment completed!"
-      echo "🌐 Preview URL: https://$(staticWebAppName).azurestaticapps.net/pr-$(System.PullRequest.PullRequestNumber)"
+      echo "🌐 Preview URL: https://app01.azurestaticapps.net/pr-$(System.PullRequest.PullRequestNumber)"
     fi
   displayName: 'Deployment Success'
