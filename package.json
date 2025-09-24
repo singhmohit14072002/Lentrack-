@@ -1,0 +1,34 @@
+{
+  "name": "anime-character-gallery",
+  "version": "1.0.0",
+  "description": "A beautiful static web app showcasing popular anime characters with interactive features",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3000 -o",
+    "build": "echo 'Static site - no build required'",
+    "deploy": "echo 'Deploy to Azure Static Web Apps'"
+  },
+  "keywords": [
+    "anime",
+    "characters",
+    "gallery",
+    "static-website",
+    "html",
+    "css",
+    "javascript",
+    "azure"
+  ],
+  "author": "singhmohit14072002",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/singhmohit14072002/Lentrack-.git"
+  },
+  "homepage": "https://github.com/singhmohit14072002/Lentrack-",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
